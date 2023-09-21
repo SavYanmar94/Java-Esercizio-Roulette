@@ -9,12 +9,9 @@ public class Giocatore {
     private int fichesPuntata;
 
 
-    public Giocatore(String nomeGiocatore, int ficheIniziali, int fichesPuntata) {
-		setNomeGiocatore(nomeGiocatore);
-		setFicheIniziali(ficheIniziali);
-		setFichesPuntata(fichesPuntata);
-	}
-
+    public Giocatore() {
+    	
+    }
 
 	public String getNomeGiocatore() {
 		return nomeGiocatore;
