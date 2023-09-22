@@ -31,7 +31,7 @@ public class Roulette {
             try {
                 fichesIniz = Integer.parseInt(reader.readLine());
                 if (fichesIniz < 1)
-                	System.out.println("Il numero di fiches da cambiare deve essere maggiore di zero");
+               	System.out.println("Il numero di fiches da cambiare deve essere maggiore di zero");
                 else 
                 	break;
                 
@@ -103,12 +103,12 @@ public class Roulette {
                 System.out.println("È uscito rosso!");
                 System.out.println("Hai vinto " + myGiocatore.getNomeGiocatore());
                 myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()+ myGiocatore.getFichesPuntata());
-                System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+                System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
             } else {
                 System.out.println("È uscito nero!");
                 System.out.println("Hai perso " + myGiocatore.getNomeGiocatore());
                 myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()- myGiocatore.getFichesPuntata());
-                System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+                System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
             }
         } else if (sceltaRossoNero == 1) {
         	
@@ -128,9 +128,10 @@ public class Roulette {
         } else if (risultatoNumeroSecco == 0 ) {
             System.out.println("Hai perso " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()- myGiocatore.getFichesPuntata());
-            System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+            System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
         }
     	
+         
     }
     
     
@@ -162,23 +163,23 @@ public class Roulette {
             System.out.println("È uscito pari!");
             System.out.println("Hai vinto " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()+ myGiocatore.getFichesPuntata());
-            System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+            System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
 
         } else if (risultatoNumeroSecco % 2 != 0 && sceltaPariDispari == 2) {
             System.out.println("È uscito dispari!");
             System.out.println("Hai vinto " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()+ myGiocatore.getFichesPuntata());
-            System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+            System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
         } else if (risultatoNumeroSecco == 0 ) {
             System.out.println("Hai perso " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()- myGiocatore.getFichesPuntata());
-            System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+            System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
         } else {
         	System.out.println("Hai perso " + myGiocatore.getNomeGiocatore());
         	myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()- myGiocatore.getFichesPuntata());
-            System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+            System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
         }
-       
+
     }
  
     
@@ -203,14 +204,14 @@ public class Roulette {
             System.out.println("Numero uscito: " + risultatoNumeroSecco);
             System.out.println("Hai vinto " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()- myGiocatore.getFichesPuntata() + (myGiocatore.getFichesPuntata() * 36));
-            System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+            System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
         } else if (sceltaNumeroSecco > 36 || sceltaNumeroSecco < 1) {
             System.out.println("Non puoi scommettere su questi numeri!");
         } else {
             System.out.println("Numero uscito: " + risultatoNumeroSecco);
             System.out.println("Hai perso " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()- myGiocatore.getFichesPuntata());
-            System.out.println(myGiocatore.getNomeGiocatore() + " Adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
+            System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
         }
     }
     
@@ -233,16 +234,12 @@ public class Roulette {
              System.out.println("Passa dalla cassa per ritirare le vincite");
              System.out.println("Spegnimento in corso...");
              System.exit(0);
-         } else if (sceltaRitiro == 2) {
-        	 giocate();
-        	 ritirooContinui();
+         }  else if (sceltaRitiro != 1 && sceltaRitiro != 2) {
+          	System.out.println("Scelta inserita non valida");
+          	ritirooContinui();
+          }
          }
          
-         else {
-         	System.out.println("Scelta inserita non valida");
-         	ritirooContinui();
-         }
-    }
     
     public void giocate() throws IOException, InterruptedException {
     	
@@ -251,34 +248,35 @@ public class Roulette {
         System.out.println("2.Pari o Dispari (si vince il doppio della puntata)");
         System.out.println("3.Numero Secco (si vince 36 volte la puntata)");
         
-        int scelta = 0;
+        
        
         try {
-            scelta = Integer.parseInt(reader.readLine());
+        	
+          int scelta = Integer.parseInt(reader.readLine());
+           switch (scelta) {
+           
+           case 1:
+           	rossoNero();
+               break;
+
+           case 2:
+           	pariDispari();
+               break;
+
+           case 3:
+           	numeroSecco();
+               break;
+
+           default:
+               System.out.println("Scelta inserita non valida");
+               giocate();
+       }
+           
         } catch (NumberFormatException exctwo) {
             System.out.println("Input immesso non compatibile");
             giocate();
         }
 
-        
-        switch (scelta) {
-        
-            case 1:
-            	rossoNero();
-                break;
-
-            case 2:
-            	pariDispari();
-                break;
-
-            case 3:
-            	numeroSecco();
-                break;
-
-            default:
-                System.out.println("Scelta inserita non valida");
-                giocate();
-        }
         
         if (myGiocatore.getFicheIniziali() <= 0) {
         	System.out.println("Game Over, non ti sono rimaste piu fiches!");
@@ -291,8 +289,10 @@ public class Roulette {
     public void play() throws IOException, InterruptedException {
 
     	datiGiocatore();
+    	while(true) {
     	giocate();
         ritirooContinui();
+        }
          
         }
  }
