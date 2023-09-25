@@ -42,24 +42,6 @@ public class Roulette {
 
         myGiocatore.setFicheIniziali(fichesIniz);
         
-        while (true) {
-            System.out.println("Quante fiches vuoi puntare ? ");
-            try {
-                fichesPuntate = Integer.parseInt(reader.readLine());
-                break;
-            } catch (NumberFormatException exctwo) {
-                System.out.println("Input immesso non compatibile, devi inserire un numero!");
-            }
-        }
-        
-       myGiocatore.setFichesPuntata(fichesPuntate);
-
-        if (myGiocatore.getFichesPuntata() > myGiocatore.getFicheIniziali()) {
-            
-        	myGiocatore.setFichesPuntata(myGiocatore.getFicheIniziali());
-            System.out.println("Hai puntato più fiches di quelle che possiedi.");
-            System.out.println("La puntata è stata modificata alla tua disponibilità di fiches.");
-        }
     	
     }
     
@@ -139,7 +121,7 @@ public class Roulette {
     	int sceltaPariDispari;
     	
     	while (true) {
-            System.out.println("Digita 1 per scegliere pari, 2 per scegliere dispari ");
+            System.out.println("Digita 1 per scegliere dispari, 2 per scegliere pari ");
             try {
             	sceltaPariDispari= Integer.parseInt(reader.readLine());
             	
@@ -159,13 +141,13 @@ public class Roulette {
         risultatoNumeroSecco = (int) (Math.random() * 37);
         System.out.println("Il numero uscito è : " + risultatoNumeroSecco);
 
-        if (risultatoNumeroSecco % 2 == 0 && sceltaPariDispari == 1) {
+        if (risultatoNumeroSecco % 2 == 0 && sceltaPariDispari == 2) {
             System.out.println("È uscito pari!");
             System.out.println("Hai vinto " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()+ myGiocatore.getFichesPuntata());
             System.out.println(myGiocatore.getNomeGiocatore() + " adesso hai: " + myGiocatore.getFicheIniziali() + " fiches");
 
-        } else if (risultatoNumeroSecco % 2 != 0 && sceltaPariDispari == 2) {
+        } else if (risultatoNumeroSecco % 2 != 0 && sceltaPariDispari == 1) {
             System.out.println("È uscito dispari!");
             System.out.println("Hai vinto " + myGiocatore.getNomeGiocatore());
             myGiocatore.setFicheIniziali(myGiocatore.getFicheIniziali()+ myGiocatore.getFichesPuntata());
@@ -243,13 +225,35 @@ public class Roulette {
     
     public void giocate() throws IOException, InterruptedException {
     	
+    	 while (true) {
+             System.out.println("Quante fiches vuoi puntare ? ");
+             try {
+                 fichesPuntate = Integer.parseInt(reader.readLine());
+                 break;
+             } catch (NumberFormatException exctwo) {
+                 System.out.println("Input immesso non compatibile, devi inserire un numero!");
+             }
+         }
+         
+        myGiocatore.setFichesPuntata(fichesPuntate);
+
+         if (myGiocatore.getFichesPuntata() > myGiocatore.getFicheIniziali()) {
+             
+         	myGiocatore.setFichesPuntata(myGiocatore.getFicheIniziali());
+             System.out.println("Hai puntato più fiches di quelle che possiedi.");
+             System.out.println("La puntata è stata modificata alla tua disponibilità di fiches.");
+         }
+    	
+    	
+    boolean ancora = true;
+    
+    while (ancora) {  
+    	
     	System.out.println("Che tipo di giocata vuoi effettuare?");
         System.out.println("1.Rosso o Nero (si vince il doppio della puntata)");
         System.out.println("2.Pari o Dispari (si vince il doppio della puntata)");
         System.out.println("3.Numero Secco (si vince 36 volte la puntata)");
-        
-        
-       
+    	
         try {
         	
           int scelta = Integer.parseInt(reader.readLine());
@@ -257,25 +261,28 @@ public class Roulette {
            
            case 1:
            	rossoNero();
+           	 ancora = false;
                break;
 
            case 2:
            	pariDispari();
+           	ancora = false;
                break;
 
            case 3:
            	numeroSecco();
+           	ancora = false;
                break;
 
            default:
                System.out.println("Scelta inserita non valida");
-               giocate();
+               
        }
            
         } catch (NumberFormatException exctwo) {
             System.out.println("Input immesso non compatibile");
-            giocate();
         }
+    }
 
         
         if (myGiocatore.getFicheIniziali() <= 0) {
